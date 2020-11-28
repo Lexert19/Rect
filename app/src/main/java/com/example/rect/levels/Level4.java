@@ -29,7 +29,7 @@ public class Level4 extends Level{
         int speed = 11;
 
         for (int i = 0; i < 25; i++) {
-            int x = i * (58) + 20;
+            int x = i * (53) + 20;
             int y = -200;
             Enemy enemy;
             if (i >= 20 && i <= 22) {
@@ -41,7 +41,7 @@ public class Level4 extends Level{
         }
 
         for (int i = 0; i < 25; i++) {
-            int x = i * (58) + 20;
+            int x = i * (53) + 20;
             int y = -800;
             Enemy enemy;
             if (i >= 5 && i <= 7) {
@@ -53,7 +53,7 @@ public class Level4 extends Level{
         }
 
         for (int i = 0; i < 25; i++) {
-            int x = i * (58) + 20;
+            int x = i * (53) + 20;
             int y = -1400;
             Enemy enemy;
             if (i >= 14 && i <= 16) {
@@ -65,7 +65,7 @@ public class Level4 extends Level{
         }
 
         for (int i = 0; i < 25; i++) {
-            int x = i * (58) + 20;
+            int x = i * (53) + 20;
             int y = -2000;
             Enemy enemy;
             if (i >= 2 && i <= 4) {
@@ -77,7 +77,7 @@ public class Level4 extends Level{
         }
 
         for (int i = 0; i < 25; i++) {
-            int x = i * (58) + 20;
+            int x = i * (53) + 20;
             int y = -2600;
             Enemy enemy;
             if (i >= 19 && i <= 21) {
@@ -89,7 +89,7 @@ public class Level4 extends Level{
         }
 
         for (int i = 0; i < 25; i++) {
-            int x = i * (58) + 20;
+            int x = i * (53) + 20;
             int y = -3200;
             Enemy enemy;
             if (i >= 7 && i <= 9) {
@@ -101,7 +101,7 @@ public class Level4 extends Level{
         }
 
         for (int i = 0; i < 25; i++) {
-            int x = i * (58) + 20;
+            int x = i * (53) + 20;
             int y = -3800;
             Enemy enemy;
             if (i >= 12 && i <= 14) {

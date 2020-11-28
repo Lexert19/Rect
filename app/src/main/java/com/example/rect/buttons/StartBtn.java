@@ -18,7 +18,7 @@ public class StartBtn {
     private int currentTime = 0;
 
     public StartBtn() {
-        this.x = (Data.gameWidth/2)-100;
+        this.x = (Data.gameWidth/2)-60;
         this.y = Data.gameHeight/2;
     }
 

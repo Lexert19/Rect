@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private void createCanvasAndGame(){
         myCanvas = new MyCanvas(this);
 
-        DrawerLayout.LayoutParams layoutParams = new DrawerLayout.LayoutParams(1400, 700);
+        DrawerLayout.LayoutParams layoutParams = new DrawerLayout.LayoutParams(Data.gameWidth, Data.gameHeight);
         int left = (Data.deviceWidth-Data.gameWidth)/2;
         int top = (Data.deviceHeight-Data.gameHeight)/2;
         layoutParams.setMargins(left, top, 0, 0);

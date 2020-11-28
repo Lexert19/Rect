@@ -31,7 +31,7 @@ public class Data {
     public static Level currentLevel = null;
     public static boolean end = false;
 
-    public static int gameWidth = 1400;
+    public static int gameWidth = 1300;
     public static int gameHeight = 700;
 
     public static int fps = 0;

@@ -27,20 +27,20 @@ public class Level1 extends Level {
         int a = 0;
         for(int j=0; j<4; j++){
              for(int i=0; i<7; i++){
-                 int x = 200+i*150;
+                 int x = 224+i*150;
                  int y = -300-i*24-a;
                  BlueEnemy blueEnemy = new BlueEnemy(x, y, 0, 5);
                  Data.enemies.add(blueEnemy);
              }
              for(int i=0; i<7; i++){
-                 int x = 200+i*150;
+                 int x = 224+i*150;
                  int y = -300-i*-24-a;
                  BlueEnemy blueEnemy = new BlueEnemy(x, y, 0, 5);
                  Data.enemies.add(blueEnemy);
              }
              a+=300;
              for(int i=0; i<7; i++){
-                 int x = 200+i*150;
+                 int x = 224+i*150;
                  int y = -300-i*-24-a;
                  BlueEnemy blueEnemy = new BlueEnemy(x, y, 0, 5);
                  Data.enemies.add(blueEnemy);

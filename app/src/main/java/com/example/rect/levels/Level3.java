@@ -27,7 +27,7 @@ public class Level3 extends Level {
         for(int k=0; k<2; k++){
             for(int j=0; j<20; j++){
                 for(int i=0; i<20; i++){
-                    int x = i*(60)+150;
+                    int x = i*(60)+100;
                     int y = j*(-60)-240-k*1800;
                     BlueEnemy blueEnemy = new BlueEnemy(x, y, 0, 2f);
                     Data.enemies.add(blueEnemy);

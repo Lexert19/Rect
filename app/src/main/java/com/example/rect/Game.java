@@ -24,7 +24,7 @@ public class Game implements Runnable{
     }
 
     public void frame(){
-        /*if(!gameSpeed(3)){
+       /* if(!gameSpeed(3)){
             this.myWait(0);
             return;
         }*/

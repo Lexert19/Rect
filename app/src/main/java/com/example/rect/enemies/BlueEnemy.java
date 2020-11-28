@@ -5,7 +5,13 @@ import android.graphics.Color;
 import android.util.Log;
 
 import com.example.rect.Data;
+import com.example.rect.particles.DeathCircle;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class BlueEnemy extends Enemy {
     private int x;
     private int y;
@@ -23,9 +29,29 @@ public class BlueEnemy extends Enemy {
 
     @Override
     public void draw(Canvas canvas) {
-        this.move();
+        if(Data.myRect.getLive() > 0){
+            this.move();
+        }
         this.drawRect(canvas);
         super.draw(canvas);
+    }
+
+    @Override
+    public void kill(){
+        DeathCircle deathCircle = new DeathCircle("#556464ff", this.x, this.y+24, 6, 10);
+        Data.particles.add(deathCircle);
+        Data.levelSPoints++;
+        this.playDash();
+    }
+
+    private void playDash(){
+        try {
+            if(Data.queue.size() == 0){
+                Data.queue.put(1);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private void move(){

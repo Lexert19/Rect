@@ -54,4 +54,12 @@ public class Level3 extends Level {
     public int getPoints() {
         return points;
     }
+
+    public int getCurrentTick() {
+        return currentTick;
+    }
+
+    public void setCurrentTick(int currentTick) {
+        this.currentTick = currentTick;
+    }
 }

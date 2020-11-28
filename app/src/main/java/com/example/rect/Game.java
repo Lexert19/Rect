@@ -10,6 +10,7 @@ public class Game implements Runnable{
     private MyCanvas myCanvas;
     private long framesTime= 0;
     private int frames= 0;
+    private int counter = 0;
 
     public Game(MyCanvas myCanvas) {
         this.myCanvas = myCanvas;
@@ -23,7 +24,7 @@ public class Game implements Runnable{
     }
 
     public void frame(){
-       /* if(!gameSpeed(3)){
+        /*if(!gameSpeed(3)){
             this.myWait(0);
             return;
         }*/
@@ -51,7 +52,6 @@ public class Game implements Runnable{
         }
     }
 
-    private int counter = 0;
     private boolean gameSpeed(int number){
         if(counter == number){
             counter = 0;

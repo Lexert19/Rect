@@ -23,6 +23,18 @@ public class MyCanvas extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
+        this.drawAll(canvas);
+
+
+        try {
+            Data.start.put(true);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void drawAll(Canvas canvas){
         try{
             if (Data.currentLevel != null) {
                 Data.currentLevel.tick();
@@ -35,11 +47,7 @@ public class MyCanvas extends View {
                 particle.draw(canvas);
             }
             Data.menu.draw(canvas);
-        }catch (Exception e){}
-
-        try {
-            Data.start.put(true);
-        } catch (InterruptedException e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
     }

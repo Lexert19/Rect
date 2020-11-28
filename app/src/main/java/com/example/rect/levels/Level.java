@@ -4,6 +4,7 @@ import com.example.rect.Data;
 
 public class Level{
     public static int points = 0;
+    private int currentTick;
 
     public int getPoints(){
         return points;
@@ -27,5 +28,13 @@ public class Level{
 
     private void clearEnemies(){
         Data.enemies.clear();
+    }
+
+    public int getCurrentTick() {
+        return currentTick;
+    }
+
+    public void setCurrentTick(int currentTick) {
+        this.currentTick = currentTick;
     }
 }

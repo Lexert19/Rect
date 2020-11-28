@@ -1,6 +1,7 @@
 package com.example.rect.particles;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.RectF;
 
 import com.example.rect.Data;
@@ -13,8 +14,8 @@ public class DeathCircle extends Particle {
     private int time;
     private int currentTime = 0;
 
-    public DeathCircle(int color, int x, int y, int speed, int time) {
-        this.color = color;
+    public DeathCircle(String color, int x, int y, int speed, int time) {
+        this.color = Color.parseColor(color);;
         this.x = x;
         this.y = y;
         this.speed = speed;

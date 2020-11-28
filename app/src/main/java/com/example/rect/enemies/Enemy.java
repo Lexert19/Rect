@@ -7,6 +7,10 @@ public class Enemy {
     private int y;
     public void draw(Canvas canvas){}
 
+    public void kill(){
+
+    }
+
     public int getX() {
         return x;
     }

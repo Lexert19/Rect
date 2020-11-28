@@ -35,7 +35,6 @@ public class Data {
     public static int gameHeight = 700;
 
     public static int fps = 0;
-    public static boolean drawing = false;
 
     public static int deviceWidth = 0;
     public static int deviceHeight = 0;

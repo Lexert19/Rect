@@ -116,10 +116,10 @@ public class MyRect {
             int time = this.getRandomInt(20,50);
             int speedX = this.getRandomInt(-20,20);
             int speedY = this.getRandomInt(-20,20);
-            DeathParticle particle = new DeathParticle(this.x-30, this.y, size, time, speed, -0.14f, "#77700fa8", speedX, speedY);
+            DeathParticle particle = new DeathParticle(this.currentX-30, this.currentY, size, time, speed, -0.14f, "#77700fa8", speedX, speedY);
             Data.particles.add(particle);
         }
-        DeathCircle deathCircle = new DeathCircle("#55700fa8",this.x-30, this.y, 9, 24);
+        DeathCircle deathCircle = new DeathCircle("#55700fa8",this.currentX-30, this.currentY, 9, 24);
         Data.particles.add(deathCircle);
         this.restart();
     }

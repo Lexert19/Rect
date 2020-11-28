@@ -110,13 +110,13 @@ public class MyRect {
         if(this.live>0){
             return;
         }
-        for(int i=0; i<50; i++){
+        for(int i=0; i<70; i++){
             int size = this.getRandomInt(24,30);
-            int speed = this.getRandomInt(12,16);
+            int speed = this.getRandomInt(8,16);
             int time = this.getRandomInt(20,50);
             int speedX = this.getRandomInt(-20,20);
             int speedY = this.getRandomInt(-20,20);
-            DeathParticle particle = new DeathParticle(this.x-30, this.y, size, time, speed, -0.2f, "#77700fa8", speedX, speedY);
+            DeathParticle particle = new DeathParticle(this.x-30, this.y, size, time, speed, -0.14f, "#77700fa8", speedX, speedY);
             Data.particles.add(particle);
         }
         DeathCircle deathCircle = new DeathCircle("#55700fa8",this.x-30, this.y, 9, 24);

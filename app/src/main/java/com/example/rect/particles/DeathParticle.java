@@ -40,7 +40,7 @@ public class DeathParticle extends Particle {
     }
 
     public DeathParticle(int x, int y, int size, int time, float speed, float speeding, String color, float speedX, float speedY) {
-        float sum = Math.abs(speedX)+Math.abs(speedY);
+        float sum = (float) Math.sqrt(Math.pow(speedX, 2)+Math.pow(speedY, 2));
 
         this.x = x;
         this.y = y;

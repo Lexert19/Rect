@@ -25,7 +25,7 @@ public class Level2 extends Level {
 
     private void spawn(){
         for(int i=0; i<360; i++){
-            int x = (int) (Math.sin(i*3)*360+670);
+            int x = (int) (Math.sin(i*3)*360+640);
             BlueEnemy blueEnemy = new BlueEnemy(x, i*(-19)-200, 0, 3.6f);
             Data.enemies.add(blueEnemy);
         }

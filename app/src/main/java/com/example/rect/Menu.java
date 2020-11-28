@@ -20,10 +20,10 @@ public class Menu {
     private LevelBtn level4;
 
     public Menu() {
-        this.level1 = new LevelBtn("Level 1", Data.gameWidth/2-140, Data.gameHeight/2-150, new Level1());
-        this.level2 = new LevelBtn("Level 2", Data.gameWidth/2-140, Data.gameHeight/2-50, new Level2());
-        this.level3 = new LevelBtn("Level 3", Data.gameWidth/2-140, Data.gameHeight/2+50, new Level3());
-        this.level4 = new LevelBtn("Level 4", Data.gameWidth/2-140, Data.gameHeight/2+150, new Level4());
+        this.level1 = new LevelBtn("Level 1", Data.gameWidth/2-170, Data.gameHeight/2-150, new Level1());
+        this.level2 = new LevelBtn("Level 2", Data.gameWidth/2-170, Data.gameHeight/2-50, new Level2());
+        this.level3 = new LevelBtn("Level 3", Data.gameWidth/2-170, Data.gameHeight/2+50, new Level3());
+        this.level4 = new LevelBtn("Level 4", Data.gameWidth/2-170, Data.gameHeight/2+150, new Level4());
     }
 
     public void click(int x, int y){

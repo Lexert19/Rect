@@ -14,7 +14,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Data {
-    public static MyRect myRect = new MyRect(700, 350, 700 ,350);
+    public static MyRect myRect = new MyRect(650, 440, 650 ,440);
     public static Paint paint = new Paint();
     public static LinkedList<Enemy> enemies = new LinkedList<>();
     public static LinkedList<Particle> particles = new LinkedList<>();

@@ -61,6 +61,7 @@ public class LevelBtn {
         canvas.drawText(this.text+" "+level.collectedPoints()+"/"+level.getPoints(),  firstX, firstY, Data.paint);
     }
 
+
     private void drawShowing(Canvas canvas){
         if(showing == false){
             return;

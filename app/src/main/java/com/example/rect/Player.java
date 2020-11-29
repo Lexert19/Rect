@@ -31,7 +31,6 @@ public class Player implements Runnable {
     private int counter = 0;
     private Uri url ;
     private List<AsyncPlayer> asyncPlayers = new ArrayList<>();
-    //private AsyncPlayer asyncPlayer = new AsyncPlayer("");
 
     public Player() {
         url = Uri.parse("android.resource://" + Data.context.getPackageName() + "/" + R.raw.dash);
@@ -39,19 +38,13 @@ public class Player implements Runnable {
             AsyncPlayer asyncPlayer = new AsyncPlayer("");
             asyncPlayers.add(asyncPlayer);
         }
-        //this.soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
-        /*for(int i=0; i<12; i++){
-            mediaPlayers.add(MediaPlayer.create(Data.context, R.raw.dash));
-        }*/
     }
 
     public void playDash() {
-        /*MediaPlayer mediaPlayer = MediaPlayer.create(Data.context, R.raw.dash);
-        mediaPlayer.start();*/
         if(counter == 7){
             counter = 0;
         }
-        this.asyncPlayers.get(counter).play(Data.context, url, false, 2);
+        this.asyncPlayers.get(counter).play(Data.context, url, false, AudioManager.STREAM_MUSIC);
         counter++;
 
     }

@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.example.rect.Data;
 
-public class StartBtn {
+public class StartBtn extends Button {
     private boolean active = true;
     private boolean hiding = false;
     private boolean showing = false;

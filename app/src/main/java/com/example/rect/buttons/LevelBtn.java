@@ -7,7 +7,7 @@ import android.util.Log;
 import com.example.rect.Data;
 import com.example.rect.levels.Level;
 
-public class LevelBtn {
+public class LevelBtn extends Button {
     private String text;
     private int firstX;
     private int firstY;
@@ -19,10 +19,12 @@ public class LevelBtn {
     private boolean active = false;
     private boolean showing = false;
     private boolean hiding = false;
+    private Directions.Direction direction;
 
     private int time = 30;
     private int currentTime = 0;
 
+    @Override
     public void draw(Canvas canvas){
         this.drawLevel(canvas);
         this.drawHiding(canvas);
@@ -49,6 +51,8 @@ public class LevelBtn {
         hiding = true;
         this.y = firstY;
 
+        Data.menu.currentLevelsSet.hideSet(Directions.Direction.UP);
+
         Data.currentLevel = level;
     }
 
@@ -72,10 +76,21 @@ public class LevelBtn {
             showing = false;
             active = true;
         }
-        this.y -= currentTime*2;
+
         Data.paint.setColor(Color.WHITE);
         Data.paint.setTextSize(60);
-        canvas.drawText(this.text+" "+level.collectedPoints()+"/"+level.getPoints(),  x, y+960, Data.paint);
+        canvas.drawText(this.text+" "+level.collectedPoints()+"/"+level.getPoints(),  x, this.showing_getY(), Data.paint);
+    }
+
+    private int showing_getY(){
+        if(this.direction == Directions.Direction.DOWN){
+            this.y -= this.currentTime*2;
+            return this.y+960;
+        }else if(this.direction == Directions.Direction.UP){
+            this.y += this.currentTime*2;
+            return this.y-960;
+        }
+        return this.firstY;
     }
 
     private void drawHiding(Canvas canvas){
@@ -87,10 +102,21 @@ public class LevelBtn {
             currentTime = 0;
             hiding = false;
         }
-        this.y -= currentTime*2;
+
         Data.paint.setColor(Color.WHITE);
         Data.paint.setTextSize(60);
-        canvas.drawText(this.text+" "+level.collectedPoints()+"/"+level.getPoints(),  x, y, Data.paint);
+        canvas.drawText(this.text+" "+level.collectedPoints()+"/"+level.getPoints(),  x, this.hiding_getY(), Data.paint);
+    }
+
+    private int hiding_getY(){
+        if(this.direction == Directions.Direction.UP){
+            this.y -= this.currentTime*2;
+            return this.y;
+        }else if(this.direction == Directions.Direction.DOWN){
+            this.y += this.currentTime*2;
+            return this.y;
+        }
+        return this.firstY;
     }
 
     public LevelBtn(String text, int x, int y, Level level) {
@@ -103,24 +129,18 @@ public class LevelBtn {
         this.firstY = y;
     }
 
-    public boolean isShowing() {
-        return showing;
-    }
-
-    public void setShowing(boolean showing) {
-        this.showing = showing;
-        this.y = firstY;
-    }
-
-    public boolean isHiding() {
-        return hiding;
-    }
-
-    public void setHiding(boolean hiding) {
-        this.hiding = hiding;
+    @Override
+    public void hide(Directions.Direction direction) {
+        this.hiding = true;
         this.y = firstY;
         this.active = false;
+        this.direction = direction;
     }
 
-
+    @Override
+    public void show(Directions.Direction direction) {
+        this.showing = true;
+        this.y = firstY;
+        this.direction = direction;
+    }
 }

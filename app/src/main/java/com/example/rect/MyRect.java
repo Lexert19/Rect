@@ -128,7 +128,7 @@ public class MyRect {
         Data.enemies.clear();
         Data.currentLevel.setCurrentTick(0);
         Data.currentLevel = null;
-        Data.menu.showLevels();
+        Data.menu.showCurrentLevelsSet();
         Data.end = true;
         this.regenerate();
         Data.levelSPoints = 0;

@@ -21,7 +21,7 @@ public class Level{
     protected void EndLevel(){
         this.clearEnemies();
         Data.currentLevel = null;
-        Data.menu.showLevels();
+        Data.menu.showCurrentLevelsSet();
         Data.end = true;
         Data.myRect.regenerate();
     }

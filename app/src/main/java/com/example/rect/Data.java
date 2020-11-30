@@ -2,9 +2,8 @@ package com.example.rect;
 
 import android.content.Context;
 import android.graphics.Paint;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
 
+import com.example.rect.Menu.Menu;
 import com.example.rect.enemies.Enemy;
 import com.example.rect.levels.Level;
 import com.example.rect.particles.Particle;

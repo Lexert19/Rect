@@ -16,7 +16,6 @@ import com.example.rect.Menu.Menu;
 public class MainActivity extends AppCompatActivity {
     private MyCanvas myCanvas;
     private VelocityTracker mVelocityTracker = VelocityTracker.obtain();
-    private SoundPool soundPool;
 
 
     @Override
@@ -25,24 +24,9 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.getHeightAndWidth();
 
-        Data.menu = new Menu();
-
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            AudioAttributes attributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-            this.soundPool = new SoundPool.Builder()
-                    .setAudioAttributes(attributes)
-                    .build();
-        } else {
-            this.soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
-        }
-
-        int soundId = soundPool.load(this, R.raw.dash, 1);
-        this.soundPool.play(soundId, 1,1,1,0,1f);*/
 
         this.createPlayer();
+        Data.menu = new Menu();
         this.createCanvasAndGame();
     }
 
@@ -69,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         Data.context = this;
         Thread player = new Thread(new Player());
         player.start();
-        //Data.player = new Player();
     }
 
     private void getHeightAndWidth(){

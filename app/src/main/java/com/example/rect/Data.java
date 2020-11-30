@@ -18,7 +18,7 @@ public class Data {
     public static LinkedList<Enemy> enemies = new LinkedList<>();
     public static LinkedList<Particle> particles = new LinkedList<>();
 
-    public static Menu menu = new Menu();
+    public static Menu menu;
 
     public static Context context;
     public static Player player;

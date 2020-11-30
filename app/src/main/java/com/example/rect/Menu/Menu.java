@@ -8,6 +8,7 @@ import com.example.rect.buttons.Directions;
 import com.example.rect.buttons.LevelBtn;
 import com.example.rect.buttons.NextButton;
 import com.example.rect.buttons.PreviousButton;
+import com.example.rect.buttons.SettingsBtn;
 import com.example.rect.buttons.StartBtn;
 import com.example.rect.labels.Points;
 import com.example.rect.levels.Level1;
@@ -17,7 +18,8 @@ import com.example.rect.levels.Level4;
 
 public class Menu {
     private Points points = new Points();
-    private StartBtn startBtn = new StartBtn();
+
+    private MenuSet menuSet = new MenuSet();
 
     private LevelsSet levelsSet1 = new LevelsSet(1);
     private LevelsSet levelsSet2 = new LevelsSet(2);
@@ -26,17 +28,20 @@ public class Menu {
 
 
     public Menu() {
+        this.createMenuSet();
         this.createLevelsSet1();
         this.createLevelsSet2();
     }
 
     public void click(int x, int y){
-        if(this.startBtn.click(x,y) == true){
+       /* if(this.startBtn.click(x,y) == true){
             this.levelsSet1.showSet(Directions.Direction.DOWN);
             this.setCurrentLevelsSet(1);
-        }
+        }*/
+        this.menuSet.click(x,y);
         this.levelsSet1.click(x,y);
         this.levelsSet2.click(x,y);
+        //this.settingsBtn.click(x,y);
     }
 
     public void setCurrentLevelsSet(int number){
@@ -45,6 +50,22 @@ public class Menu {
         }else if(number == 2){
             this.currentLevelsSet = this.levelsSet2;
         }
+    }
+
+    /*public void hideSettingsButton(Directions.Direction direction){
+        this.settingsBtn.hide(direction);
+    }*/
+
+    public void showMenu(Directions.Direction direction){
+        this.menuSet.show(direction);
+    }
+
+    public void showSettingsSet(Directions.Direction direction){
+
+    }
+
+    public void hideMenu(Directions.Direction direction){
+        this.menuSet.hide(direction);
     }
 
     public void showCurrentLevelsSet(){
@@ -62,6 +83,14 @@ public class Menu {
                 break;
             }
         }
+    }
+
+    private void createMenuSet(){
+        Button settings = new SettingsBtn(Data.gameWidth-100, Data.deviceHeight-120);
+        Button start =  new StartBtn(Data.gameWidth/2-100, Data.gameHeight/2);
+
+        this.menuSet.addButton(settings);
+        this.menuSet.addButton(start);
     }
 
     private void createLevelsSet1(){
@@ -96,7 +125,9 @@ public class Menu {
         this.levelsSet1.draw(canvas);
         this.levelsSet2.draw(canvas);
 
-        this.startBtn.draw(canvas);
+        this.menuSet.draw(canvas);
+        //this.settingsBtn.draw(canvas);
+        //this.startBtn.draw(canvas);
         this.points.draw(canvas);
     }
 

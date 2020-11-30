@@ -7,25 +7,12 @@ import android.util.Log;
 import com.example.rect.Data;
 
 public class StartBtn extends Button {
-    private boolean active = true;
-    private boolean hiding = false;
-    private boolean showing = false;
+    public StartBtn(int firstX, int firstY) {
+        super(firstX,firstY);
+        this.active = true;
 
-    private int x;
-    private int y;
-
-    private int showingTime = 30;
-    private int currentTime = 0;
-
-    public StartBtn() {
-        this.x = (Data.gameWidth/2)-100;
-        this.y = Data.gameHeight/2;
-    }
-
-    public void draw(Canvas canvas){
-        this.drawButton(canvas);
-        this.drawShowing(canvas);
-        this.drawHiding(canvas);
+        this.text = "Start";
+        this.fontSize = 90;
     }
 
     public boolean click(int x, int y){
@@ -39,45 +26,13 @@ public class StartBtn extends Button {
             return false;
         }
 
-        hiding = true;
-        active = false;
+        this.use();
         return true;
     }
 
-    private void drawButton(Canvas canvas){
-        if(active == false){
-            return;
-        }
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(90);
-        canvas.drawText("Start",  x, y, Data.paint);
-    }
-
-    private void drawShowing(Canvas canvas){
-        if(showing == false){
-            return;
-        }
-        currentTime++;
-        if(currentTime == showingTime){
-            showing = false;
-        }
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(90);
-        canvas.drawText("Start", x, currentTime*30+y, Data.paint);
-    }
-
-    private void drawHiding(Canvas canvas){
-        if(hiding == false){
-            return;
-        }
-        currentTime++;
-        if(currentTime == showingTime){
-            hiding = false;
-        }
-        this.y -= currentTime*2;
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(90);
-        canvas.drawText("Start", x, y, Data.paint);
-
+    private void use(){
+        Data.menu.setCurrentLevelsSet(1);
+        Data.menu.showCurrentLevelsSet();
+        Data.menu.hideMenu(Directions.Direction.UP);
     }
 }

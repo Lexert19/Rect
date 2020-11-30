@@ -7,18 +7,12 @@ import android.util.Log;
 import com.example.rect.Data;
 
 public class NextButton extends Button{
-    private boolean active = false;
-    private boolean showing = false;
-    private boolean hiding = false;
-    private Directions.Direction direction;
+    public NextButton(int firstX, int firstY) {
+        super(firstX,firstY);
 
-
-    private int firstX;
-    private int firstY;
-    private int x;
-    private int y;
-    private int currentTime = 0;
-    private int time = 30;
+        this.text = "next";
+        this.fontSize = 60;
+    }
 
     @Override
     public boolean click(int x, int y) {
@@ -41,93 +35,5 @@ public class NextButton extends Button{
         Data.menu.currentLevelsSet.showNextSet(Directions.Direction.DOWN);
     }
 
-    @Override
-    public void draw(Canvas canvas) {
-        this.drawButton(canvas);
-        this.drawHiding(canvas);
-        this.drawShowing(canvas);
-    }
 
-    private void drawButton(Canvas canvas){
-        if(this.active == false){
-            return;
-        }
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(60);
-        canvas.drawText("Next",  firstX, firstY, Data.paint);
-    }
-
-    private void drawHiding(Canvas canvas){
-        if(this.hiding == false){
-            return;
-        }
-        currentTime++;
-        if(currentTime == time){
-            currentTime = 0;
-            hiding = false;
-        }
-
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(60);
-        canvas.drawText("Next",  x, this.hiding_getY(), Data.paint);
-    }
-
-    private int hiding_getY(){
-        if(this.direction == Directions.Direction.UP){
-            this.y -= this.currentTime*2;
-            return this.y;
-        }else if(this.direction == Directions.Direction.DOWN){
-            this.y += this.currentTime*2;
-            return this.y;
-        }
-        return this.firstY;
-    }
-
-    private void drawShowing(Canvas canvas){
-        if(this.showing == false){
-            return;
-        }
-        currentTime++;
-        if(currentTime == time){
-            currentTime = 0;
-            showing = false;
-            active = true;
-        }
-
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(60);
-        canvas.drawText("Next",  x, this.showing_getY(), Data.paint);
-    }
-
-    private int showing_getY(){
-        if(this.direction == Directions.Direction.DOWN){
-            this.y -= this.currentTime*2;
-            return this.y+960;
-        }else if(this.direction == Directions.Direction.UP){
-            this.y += this.currentTime*2;
-            return this.y-960;
-        }
-        return this.firstY;
-    }
-
-    @Override
-    public void show(Directions.Direction direction) {
-        this.showing = true;
-        this.y = firstY;
-        this.direction = direction;
-    }
-
-    @Override
-    public void hide(Directions.Direction direction) {
-        this.hiding = true;
-        this.y = firstY;
-        this.active = false;
-        this.direction = direction;
-    }
-
-    public NextButton(int firstX, int firstY) {
-        this.firstX = firstX;
-        this.firstY = firstY;
-        this.x = firstX;
-    }
 }

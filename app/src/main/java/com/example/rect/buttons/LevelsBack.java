@@ -1,13 +1,13 @@
 package com.example.rect.buttons;
 
+import android.graphics.Canvas;
+
 import com.example.rect.Data;
 
-public class PreviousButton extends Button{
-
-    public PreviousButton(int firstX, int firstY) {
-        super(firstX,firstY);
-
-        this.text = "previous";
+public class LevelsBack extends Button {
+    public LevelsBack(int firstX, int firstY) {
+        super(firstX, firstY);
+        this.text = "back";
         this.fontSize = 60;
     }
 
@@ -29,6 +29,11 @@ public class PreviousButton extends Button{
 
     private void use(){
         Data.menu.currentLevelsSet.hideSet(Directions.Direction.DOWN);
-        Data.menu.currentLevelsSet.showPreviousSet(Directions.Direction.UP);
+        Data.menu.showMenu(Directions.Direction.UP);
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
     }
 }

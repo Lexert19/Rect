@@ -1,9 +1,5 @@
 package com.example.rect.buttons;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.util.Log;
-
 import com.example.rect.Data;
 
 public class NextButton extends Button{

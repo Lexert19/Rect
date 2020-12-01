@@ -3,12 +3,15 @@ package com.example.rect.Menu;
 import android.graphics.Canvas;
 
 import com.example.rect.Data;
+import com.example.rect.buttons.BackBtn;
 import com.example.rect.buttons.Button;
 import com.example.rect.buttons.Directions;
 import com.example.rect.buttons.LevelBtn;
+import com.example.rect.buttons.LevelsBack;
 import com.example.rect.buttons.NextButton;
 import com.example.rect.buttons.PreviousButton;
 import com.example.rect.buttons.SettingsBtn;
+import com.example.rect.buttons.SoundBtn;
 import com.example.rect.buttons.StartBtn;
 import com.example.rect.labels.Points;
 import com.example.rect.levels.Level1;
@@ -20,28 +23,24 @@ public class Menu {
     private Points points = new Points();
 
     private MenuSet menuSet = new MenuSet();
+    private SettingsSet settingsSet = new SettingsSet();
 
     private LevelsSet levelsSet1 = new LevelsSet(1);
     private LevelsSet levelsSet2 = new LevelsSet(2);
     public LevelsSet currentLevelsSet;
 
-
-
     public Menu() {
         this.createMenuSet();
         this.createLevelsSet1();
         this.createLevelsSet2();
+        this.createSettingsSet();
     }
 
     public void click(int x, int y){
-       /* if(this.startBtn.click(x,y) == true){
-            this.levelsSet1.showSet(Directions.Direction.DOWN);
-            this.setCurrentLevelsSet(1);
-        }*/
         this.menuSet.click(x,y);
         this.levelsSet1.click(x,y);
         this.levelsSet2.click(x,y);
-        //this.settingsBtn.click(x,y);
+        this.settingsSet.click(x,y);
     }
 
     public void setCurrentLevelsSet(int number){
@@ -52,20 +51,20 @@ public class Menu {
         }
     }
 
-    /*public void hideSettingsButton(Directions.Direction direction){
-        this.settingsBtn.hide(direction);
-    }*/
+    public void hideSettingsSet(Directions.Direction direction){
+        this.settingsSet.hideSet(direction);
+    }
 
     public void showMenu(Directions.Direction direction){
-        this.menuSet.show(direction);
+        this.menuSet.showSet(direction);
     }
 
     public void showSettingsSet(Directions.Direction direction){
-
+        this.settingsSet.showSet(direction);
     }
 
     public void hideMenu(Directions.Direction direction){
-        this.menuSet.hide(direction);
+        this.menuSet.hideSet(direction);
     }
 
     public void showCurrentLevelsSet(){
@@ -85,6 +84,14 @@ public class Menu {
         }
     }
 
+    private void createSettingsSet(){
+        Button sound = new SoundBtn(Data.gameWidth/2-170, Data.gameHeight/2-150);
+        Button back = new BackBtn(50, Data.gameHeight-30);
+
+        this.settingsSet.addButton(sound);
+        this.settingsSet.addButton(back);
+    }
+
     private void createMenuSet(){
         Button settings = new SettingsBtn(Data.gameWidth-100, Data.deviceHeight-120);
         Button start =  new StartBtn(Data.gameWidth/2-100, Data.gameHeight/2);
@@ -98,6 +105,7 @@ public class Menu {
         Button level2 = new LevelBtn("Level 2", Data.gameWidth/2-170, Data.gameHeight/2-50, new Level2());
         Button level3 = new LevelBtn("Level 3", Data.gameWidth/2-170, Data.gameHeight/2+50, new Level3());
         Button level4 = new LevelBtn("Level 4", Data.gameWidth/2-170, Data.gameHeight/2+150, new Level4());
+        Button back = new LevelsBack(50, Data.gameHeight-30);
         Button next = new NextButton(Data.gameWidth/2-70, Data.gameHeight/2+250);
 
         this.levelsSet1.addButton(level1);
@@ -105,6 +113,7 @@ public class Menu {
         this.levelsSet1.addButton(level3);
         this.levelsSet1.addButton(level4);
         this.levelsSet1.addButton(next);
+        this.levelsSet1.addButton(back);
     }
 
     private void createLevelsSet2(){
@@ -112,6 +121,7 @@ public class Menu {
         Button level2 = new LevelBtn("Level 6", Data.gameWidth/2-170, Data.gameHeight/2-50, new Level1());
         Button level3 = new LevelBtn("Level 7", Data.gameWidth/2-170, Data.gameHeight/2+50, new Level1());
         Button level4 = new LevelBtn("Level 8", Data.gameWidth/2-170, Data.gameHeight/2+150, new Level1());
+        Button back = new LevelsBack(50, Data.gameHeight-30);
         Button previous = new PreviousButton(Data.gameWidth/2-120, Data.gameHeight/2-250);
 
         this.levelsSet2.addButton(level1);
@@ -119,6 +129,7 @@ public class Menu {
         this.levelsSet2.addButton(level3);
         this.levelsSet2.addButton(level4);
         this.levelsSet2.addButton(previous);
+        this.levelsSet2.addButton(back);
     }
 
     public void draw(Canvas canvas){
@@ -126,8 +137,8 @@ public class Menu {
         this.levelsSet2.draw(canvas);
 
         this.menuSet.draw(canvas);
-        //this.settingsBtn.draw(canvas);
-        //this.startBtn.draw(canvas);
+        this.settingsSet.draw(canvas);
+
         this.points.draw(canvas);
     }
 

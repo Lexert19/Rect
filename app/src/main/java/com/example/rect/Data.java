@@ -23,8 +23,8 @@ public class Data {
     public static Context context;
     public static Player player;
 
-    public static BlockingQueue<Integer> queue = new LinkedBlockingQueue<>();
-    public static BlockingQueue<Boolean> start = new LinkedBlockingQueue<>();
+    public static BlockingQueue<Integer> playerQueue = new LinkedBlockingQueue<>(3);
+    public static BlockingQueue<Boolean> start = new LinkedBlockingQueue<>(3);
 
     public static int levelSPoints = 0;
     public static Level currentLevel = null;

@@ -1,36 +1,18 @@
 package com.example.rect;
 
-import android.content.Context;
-import android.content.Intent;
 import android.media.AsyncPlayer;
-import android.media.AudioAttributes;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.util.Log;
 
-import androidx.annotation.RequiresApi;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import static androidx.core.content.ContextCompat.getSystemService;
-import static androidx.core.content.ContextCompat.startActivity;
 
 
 public class Player implements Runnable {
     private int counter = 0;
     private Uri url ;
     private List<AsyncPlayer> asyncPlayers = new ArrayList<>();
+    private boolean sound = true;
 
     public Player() {
         url = Uri.parse("android.resource://" + Data.context.getPackageName() + "/" + R.raw.dash);
@@ -48,20 +30,27 @@ public class Player implements Runnable {
         counter++;
 
     }
+
     @Override
     public void run() {
         while (true){
             try {
-                Data.queue.take();
-                this.playDash();
+                int msg = Data.playerQueue.take();
+                if(msg == 0){
+                    this.sound = false;
+                }else if(msg == 1){
+                    this.sound = true;
+                }else if(msg == 2){
+                    if(this.sound){
+                        this.playDash();
+                    }
+                }
 
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    //e.printStackTrace();
                 }
             } catch (InterruptedException e) {
-                //e.printStackTrace();
             }
         }
     }

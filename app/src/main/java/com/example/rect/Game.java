@@ -1,11 +1,5 @@
 package com.example.rect;
 
-import android.util.Log;
-
-import com.example.rect.enemies.Enemy;
-import com.example.rect.levels.Level1;
-
-
 public class Game implements Runnable{
     private MyCanvas myCanvas;
     private long framesTime= 0;

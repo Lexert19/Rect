@@ -15,7 +15,7 @@ public class Button {
     protected int animationTime = 30;
 
     protected String text;
-    protected int fontSize;
+    protected int fontSize = 60;
 
     protected boolean active = false;
     protected boolean showing = false;
@@ -105,21 +105,21 @@ public class Button {
 
     protected int showing_getX(){
         if(this.direction == Directions.Direction.RIGHT){
-            this.x -= this.currentTime*2;
-            return this.x+960;
+            this.x -= this.currentTime*3;
+            return this.x+1440;
         }else if(this.direction == Directions.Direction.LEFT){
-            this.x += this.currentTime*2;
-            return this.x-960;
+            this.x += this.currentTime*3;
+            return this.x-1440;
         }
         return this.firstX;
     }
 
     protected int hiding_getX(){
         if(this.direction == Directions.Direction.RIGHT){
-            this.x += this.currentTime*2;
+            this.x += this.currentTime*3;
             return this.x;
         }else if(this.direction == Directions.Direction.LEFT){
-            this.x -= this.currentTime*2;
+            this.x -= this.currentTime*3;
             return this.x;
         }
         return this.firstX;

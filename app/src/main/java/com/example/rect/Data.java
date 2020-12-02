@@ -42,4 +42,8 @@ public class Data {
     public static int lvl2Points = 0;
     public static int lvl3Points = 0;
     public static int lvl4Points = 0;
+    public static int lvl5Points = 0;
+    public static int lvl6Points = 0;
+    public static int lvl7Points = 0;
+    public static int lvl8Points = 0;
 }

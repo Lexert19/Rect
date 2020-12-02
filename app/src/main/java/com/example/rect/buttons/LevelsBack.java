@@ -8,7 +8,7 @@ public class LevelsBack extends Button {
     public LevelsBack(int firstX, int firstY) {
         super(firstX, firstY);
         this.text = "back";
-        this.fontSize = 60;
+        this.fontSize = 50;
     }
 
     @Override

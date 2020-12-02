@@ -18,7 +18,7 @@ public class Level4 extends Level{
             this.EndLevel();
         }
 
-        if(currentTick == 20){
+        if(currentTick == 30){
             this.spawn();
         }
 

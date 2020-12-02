@@ -4,7 +4,7 @@ import com.example.rect.Data;
 
 public class Level{
     public static int points = 0;
-    private int currentTick;
+    protected int currentTick;
 
     public int getPoints(){
         return points;

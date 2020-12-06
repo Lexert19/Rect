@@ -3,19 +3,13 @@ package com.example.rect.levels;
 import com.example.rect.Data;
 
 public class Level{
-    public static int points = 0;
+    protected int points = 0;
     protected int currentTick;
-
-    public int getPoints(){
-        return points;
-    }
+    protected int ticks;
+    protected int levelId;
 
     public void tick(){
 
-    }
-
-    public int collectedPoints(){
-        return 1;
     }
 
     protected void EndLevel(){
@@ -24,6 +18,19 @@ public class Level{
         Data.menu.showCurrentLevelsSet();
         Data.end = true;
         Data.myRect.regenerate();
+
+        if(Data.listOfPoints.get(levelId) < Data.levelSPoints){
+            Data.listOfPoints.set(levelId, Data.levelSPoints);
+        }
+        Data.levelSPoints = 0;
+    }
+
+    public int collectedPoints(){
+        return Data.listOfPoints.get(levelId);
+    }
+
+    public int getPoints(){
+        return points;
     }
 
     private void clearEnemies(){

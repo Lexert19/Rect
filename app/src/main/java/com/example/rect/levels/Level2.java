@@ -4,9 +4,11 @@ import com.example.rect.Data;
 import com.example.rect.enemies.BlueEnemy;
 
 public class Level2 extends Level {
-    private int ticks = 2200;
-    public static int points = 360;
-    private int currentTick = 0;
+    public Level2() {
+        this.points = 360;
+        this.ticks = 2200;
+        this.levelId = 2;
+    }
 
     @Override
     public void tick() {
@@ -19,8 +21,6 @@ public class Level2 extends Level {
         if(currentTick == 30){
             this.spawn();
         }
-
-        super.tick();
     }
 
     private void spawn(){
@@ -29,32 +29,5 @@ public class Level2 extends Level {
             BlueEnemy blueEnemy = new BlueEnemy(x, i*(-19)-200, 0, 3.6f);
             Data.enemies.add(blueEnemy);
         }
-    }
-
-    @Override
-    protected void EndLevel() {
-        super.EndLevel();
-        if(Data.lvl2Points < Data.levelSPoints){
-            Data.lvl2Points = Data.levelSPoints;
-        }
-        Data.levelSPoints = 0;
-    }
-
-    @Override
-    public int collectedPoints() {
-        return Data.lvl2Points;
-    }
-
-    @Override
-    public int getPoints() {
-        return points;
-    }
-
-    public int getCurrentTick() {
-        return currentTick;
-    }
-
-    public void setCurrentTick(int currentTick) {
-        this.currentTick = currentTick;
     }
 }

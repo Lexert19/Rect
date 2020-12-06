@@ -8,7 +8,7 @@ import com.example.rect.Data;
 public class BackBtn extends Button{
     public BackBtn(int firstX, int firstY) {
         super(firstX, firstY);
-        this.text = "back";
+        this.text = "<--";
         this.fontSize = 60;
     }
 

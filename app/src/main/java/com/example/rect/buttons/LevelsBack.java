@@ -7,7 +7,7 @@ import com.example.rect.Data;
 public class LevelsBack extends Button {
     public LevelsBack(int firstX, int firstY) {
         super(firstX, firstY);
-        this.text = "back";
+        this.text = "<--";
         this.fontSize = 50;
     }
 

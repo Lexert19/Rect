@@ -17,7 +17,7 @@ public class SettingsBtn extends Button{
         this.active = true;
 
         this.gear = BitmapFactory.decodeResource(Data.context.getResources(), R.drawable.settings);
-        this.gear = Bitmap.createScaledBitmap(this.gear, 90, 90, false);
+        this.gear = Bitmap.createScaledBitmap(this.gear, 80, 80, false);
     }
 
     @Override

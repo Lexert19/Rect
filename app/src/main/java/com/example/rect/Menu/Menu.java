@@ -19,6 +19,9 @@ import com.example.rect.levels.Level2;
 import com.example.rect.levels.Level3;
 import com.example.rect.levels.Level4;
 import com.example.rect.levels.Level5;
+import com.example.rect.levels.Level6;
+import com.example.rect.levels.Level7;
+import com.example.rect.levels.Level8;
 
 public class Menu {
     private Points points = new Points();
@@ -94,7 +97,7 @@ public class Menu {
     }
 
     private void createMenuSet(){
-        Button settings = new SettingsBtn(Data.gameWidth-100, Data.deviceHeight-120);
+        Button settings = new SettingsBtn(Data.gameWidth-100, Data.gameHeight-90);
         Button start =  new StartBtn(Data.gameWidth/2-100, Data.gameHeight/2);
 
         this.menuSet.addButton(settings);
@@ -106,8 +109,8 @@ public class Menu {
         Button level2 = new LevelBtn("Level 2", Data.gameWidth/2-170, Data.gameHeight/2-50, new Level2());
         Button level3 = new LevelBtn("Level 3", Data.gameWidth/2-170, Data.gameHeight/2+50, new Level3());
         Button level4 = new LevelBtn("Level 4", Data.gameWidth/2-170, Data.gameHeight/2+150, new Level4());
-        Button back = new LevelsBack(20, Data.gameHeight-30);
-        Button next = new NextButton(Data.gameWidth/2-50, Data.gameHeight/2+250);
+        Button back = new LevelsBack(20, Data.gameHeight-20);
+        Button next = new NextButton(Data.gameWidth/2-30, Data.gameHeight/2+250);
 
         this.levelsSet1.addButton(level1);
         this.levelsSet1.addButton(level2);
@@ -119,11 +122,11 @@ public class Menu {
 
     private void createLevelsSet2(){
         Button level1 = new LevelBtn("Level 5", Data.gameWidth/2-170, Data.gameHeight/2-150, new Level5());
-        Button level2 = new LevelBtn("Level 6", Data.gameWidth/2-170, Data.gameHeight/2-50, new Level1());
-        Button level3 = new LevelBtn("Level 7", Data.gameWidth/2-170, Data.gameHeight/2+50, new Level1());
-        Button level4 = new LevelBtn("Level 8", Data.gameWidth/2-170, Data.gameHeight/2+150, new Level1());
+        Button level2 = new LevelBtn("Level 6", Data.gameWidth/2-170, Data.gameHeight/2-50, new Level6());
+        Button level3 = new LevelBtn("Level 7", Data.gameWidth/2-170, Data.gameHeight/2+50, new Level7());
+        Button level4 = new LevelBtn("Level 8", Data.gameWidth/2-170, Data.gameHeight/2+150, new Level8());
         Button back = new LevelsBack(20, Data.gameHeight-30);
-        Button previous = new PreviousButton(Data.gameWidth/2-110, Data.gameHeight/2-250);
+        Button previous = new PreviousButton(Data.gameWidth/2-20, Data.gameHeight/2-250);
 
         this.levelsSet2.addButton(level1);
         this.levelsSet2.addButton(level2);

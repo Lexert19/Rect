@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.WindowManager;
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.rect.Menu.Menu;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private MyCanvas myCanvas;
@@ -24,10 +27,17 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.getHeightAndWidth();
 
-
+        this.loadData();
         this.createPlayer();
         Data.menu = new Menu();
         this.createCanvasAndGame();
+    }
+
+    private void loadData(){
+        Data.listOfPoints = new ArrayList<Integer>(9);
+        for(int i=0; i<9; i++){
+            Data.listOfPoints.add(i,0);
+        }
     }
 
     private void createCanvasAndGame(){
@@ -60,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         Data.deviceHeight = displayMetrics.heightPixels;
         Data.deviceWidth = displayMetrics.widthPixels;
+        Log.i("dgf",""+Data.deviceHeight);
+        Log.i("dgf",""+Data.deviceWidth);
     }
 
 

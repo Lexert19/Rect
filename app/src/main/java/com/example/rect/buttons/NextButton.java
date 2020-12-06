@@ -6,7 +6,7 @@ public class NextButton extends Button{
     public NextButton(int firstX, int firstY) {
         super(firstX,firstY);
 
-        this.text = "next";
+        this.text = "\\/";
         this.fontSize = 60;
     }
 

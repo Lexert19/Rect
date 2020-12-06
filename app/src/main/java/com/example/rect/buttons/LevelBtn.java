@@ -23,13 +23,6 @@ public class LevelBtn extends Button {
         this.fontSize = 60;
     }
 
-   /* @Override
-    public void draw(Canvas canvas){
-        this.drawButton(canvas);
-        this.drawHiding(canvas);
-        this.drawShowing(canvas);
-    }*/
-
     public boolean click(int x, int y){
         if(active == false){
             return false;

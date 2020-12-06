@@ -172,7 +172,13 @@ public class MyRect {
     }
 
     public void setX(int x) {
-        this.x = x;
+        if(x > 1300){
+            this.x = 1300;
+        }else if(x < 0){
+            this.x = 0;
+        } else {
+            this.x = x;
+        }
     }
 
     public int getY() {
@@ -180,7 +186,13 @@ public class MyRect {
     }
 
     public void setY(int y) {
-        this.y = y;
+        if(y > 700){
+            this.y = 700;
+        }else if(y < 0){
+            this.y = 0;
+        }else {
+            this.y = y;
+        }
     }
 
     public int getLive() {

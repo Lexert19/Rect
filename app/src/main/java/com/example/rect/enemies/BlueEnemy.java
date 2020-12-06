@@ -17,6 +17,11 @@ public class BlueEnemy extends Enemy {
 
     }
 
+    public BlueEnemy(int x, int y){
+        super(x,y);
+        this.color = Color.parseColor("#6464ff");
+    }
+
     @Override
     public void kill(){
         DeathCircle deathCircle = new DeathCircle("#556464ff", this.x, this.y+24, 6, 10);

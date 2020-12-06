@@ -7,7 +7,7 @@ public class PreviousButton extends Button{
     public PreviousButton(int firstX, int firstY) {
         super(firstX,firstY);
 
-        this.text = "previous";
+        this.text = "/\\";
         this.fontSize = 60;
     }
 

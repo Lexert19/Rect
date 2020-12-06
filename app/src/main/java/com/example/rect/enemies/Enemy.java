@@ -1,6 +1,7 @@
 package com.example.rect.enemies;
 
 import android.graphics.Canvas;
+import android.util.Log;
 
 import com.example.rect.Data;
 
@@ -11,6 +12,12 @@ public class Enemy {
     protected float speedY;
     protected int degrees;
     protected int color;
+    protected Path path = new Path(this);
+
+    public Enemy(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     public Enemy(int x, int y, float speedX, float speedY) {
         this.x = x;
@@ -42,8 +49,16 @@ public class Enemy {
     }
 
     protected void move(){
-        this.x += speedX;
-        this.y += speedY;
+        if(!path.isEmpty()){
+            try{
+                this.path.move();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }else {
+            this.x += speedX;
+            this.y += speedY;
+        }
         this.degrees +=1;
     }
 
@@ -70,6 +85,14 @@ public class Enemy {
     }
 
     public void setY(int y) {
-        this.y = y-40;
+        this.y = y;
+    }
+
+    public Path getPath() {
+        return path;
+    }
+
+    public void setPath(Path path) {
+        this.path = path;
     }
 }

@@ -8,7 +8,9 @@ import com.example.rect.enemies.Enemy;
 import com.example.rect.levels.Level;
 import com.example.rect.particles.Particle;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -38,12 +40,5 @@ public class Data {
     public static int deviceWidth = 0;
     public static int deviceHeight = 0;
 
-    public static int lvl1Points = 0;
-    public static int lvl2Points = 0;
-    public static int lvl3Points = 0;
-    public static int lvl4Points = 0;
-    public static int lvl5Points = 0;
-    public static int lvl6Points = 0;
-    public static int lvl7Points = 0;
-    public static int lvl8Points = 0;
+    public static List<Integer> listOfPoints = new ArrayList<Integer>(9);
 }

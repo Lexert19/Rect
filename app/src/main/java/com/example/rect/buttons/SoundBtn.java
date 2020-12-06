@@ -50,46 +50,6 @@ public class SoundBtn extends Button {
         }else{
             text = "Sound: Off";
         }
-        Log.i("gs",this.text);
     }
-
-  /*  protected void drawShowing(Canvas canvas){
-        if(showing == false){
-            return;
-        }
-        currentTime++;
-        if(currentTime == animationTime){
-            showing = false;
-            currentTime = 0;
-            active = true;
-        }
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(fontSize);
-        canvas.drawText(text, this.showing_getX(), this.showing_getY(), Data.paint);
-    }
-
-    protected void drawButton(Canvas canvas){
-        if(this.active == false){
-            return;
-        }
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(fontSize);
-        canvas.drawText(text,  firstX, firstY, Data.paint);
-    }
-
-    protected void drawHiding(Canvas canvas){
-        if(this.hiding == false){
-            return;
-        }
-        currentTime++;
-        if(currentTime == animationTime){
-            currentTime = 0;
-            hiding = false;
-        }
-
-        Data.paint.setColor(Color.WHITE);
-        Data.paint.setTextSize(fontSize);
-        canvas.drawText(text,  hiding_getX(), hiding_getY(), Data.paint);
-    }*/
 
 }

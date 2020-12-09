@@ -1,5 +1,6 @@
 package com.example.rect.buttons;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 
@@ -20,6 +21,8 @@ public class Button {
     protected boolean active = false;
     protected boolean showing = false;
     protected boolean hiding = false;
+
+    protected Bitmap icon;
 
     public Button(int firstX, int firstY) {
         this.firstX = firstX;
@@ -51,6 +54,44 @@ public class Button {
         this.drawButton(canvas);
         this.drawShowing(canvas);
         this.drawHiding(canvas);
+    }
+
+    public void drawIcon(Canvas canvas){
+        this.drawIconActive(canvas);
+        this.drawIconShowing(canvas);
+        this.drawIconHiding(canvas);
+    }
+
+    protected void drawIconActive(Canvas canvas){
+        if(this.active == false){
+            return;
+        }
+        canvas.drawBitmap(icon, firstX, firstY, Data.paint);
+    }
+
+    protected void drawIconShowing(Canvas canvas){
+        if(showing == false){
+            return;
+        }
+        currentTime++;
+        if(currentTime == animationTime){
+            showing = false;
+            currentTime = 0;
+            active = true;
+        }
+        canvas.drawBitmap(icon, showing_getX(), showing_getY(), Data.paint);
+    }
+
+    protected void drawIconHiding(Canvas canvas){
+        if(this.hiding == false){
+            return;
+        }
+        currentTime++;
+        if(currentTime == animationTime){
+            currentTime = 0;
+            hiding = false;
+        }
+        canvas.drawBitmap(icon, hiding_getX(), hiding_getY(), Data.paint);
     }
 
     protected void drawShowing(Canvas canvas){

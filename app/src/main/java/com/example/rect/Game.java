@@ -1,5 +1,7 @@
 package com.example.rect;
 
+import java.util.concurrent.TimeUnit;
+
 public class Game implements Runnable{
     private MyCanvas myCanvas;
     private long framesTime= 0;
@@ -26,7 +28,7 @@ public class Game implements Runnable{
         try {
             long start = System.currentTimeMillis();
             myCanvas.postInvalidate();
-            Data.start.take();
+            Data.start.poll(2000, TimeUnit.MILLISECONDS);
             long stop = System.currentTimeMillis();
             long time = (stop - start);
             this.getFPS(time);

@@ -11,36 +11,13 @@ public class Point {
     private Enemy enemy;
     private boolean active = true;
 
-  /*  private float moveX;
-    private float moveY;*/
-
-
     public Point(int speed, int x, int y, int time, Enemy enemy) {
         this.speed = speed;
         this.x = x;
         this.y = y;
         this.time = time;
         this.enemy = enemy;
-        //getMoveXAndMoveY();
     }
-
-   /* private void getMoveXAndMoveY(){
-        int distanceX = enemy.getX() - x;
-        int distanceY = enemy.getY() - y;
-        if (Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2)) <speed) {
-            enemy.setX(x);
-            enemy.setY(y);
-            return;
-        }
-        float parts = Math.abs(distanceX) + Math.abs(distanceY);
-        if (parts == 0) {
-            return;
-        }
-
-        float step = speed / parts;
-        moveX = distanceX * step*(-1);
-        moveY = distanceY * step*(-1);
-    }*/
 
     public void move(){
         if(!active){

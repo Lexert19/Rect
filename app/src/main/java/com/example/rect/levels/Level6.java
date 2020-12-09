@@ -73,6 +73,7 @@ public class Level6 extends Level {
             enemy.setPath(path);
             Data.enemies.add(enemy);
         }
+
         for (int i = 0; i < 6; i++) {
             int x_ = x + i * 40;
             int y_ = y - i * 40 + 200;
@@ -83,6 +84,7 @@ public class Level6 extends Level {
             enemy.setPath(path);
             Data.enemies.add(enemy);
         }
+
         for (int i = 0; i < 6; i++) {
             int x_ = x + 360;
             int y_ = y - i * 40 + 200;

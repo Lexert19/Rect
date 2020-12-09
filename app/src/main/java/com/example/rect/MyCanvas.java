@@ -14,6 +14,10 @@ import android.view.View;
 import com.example.rect.enemies.Enemy;
 import com.example.rect.particles.Particle;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
+
 public class MyCanvas extends View {
     public MyCanvas(Context context) {
 
@@ -27,10 +31,12 @@ public class MyCanvas extends View {
         this.drawAll(canvas);
 
 
-        try {
-            Data.start.put(true);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(Data.start.size() == 0){
+            //Data.start.put(true);
+            if(!Data.start.add(true)){
+                Data.start = new LinkedBlockingQueue<>();
+                Data.start.add(true);
+            }
         }
     }
 
